@@ -7,8 +7,8 @@ import retrofit2.http.GET;
 
 public interface Api {
 
-    String BASE_URL = "https://reqres.in/api/";
+    String BASE_URL = "http://52.66.247.11/api/";
 
-    @GET("users/?per_page=12&amp;page=1")
-    Call<ResponseBody> fetchUsers();
+    @GET("showcategory")
+    Call<ResponseBody> fetchCategory();
 }

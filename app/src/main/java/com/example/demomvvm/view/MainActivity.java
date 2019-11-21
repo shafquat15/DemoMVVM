@@ -3,43 +3,40 @@ package com.example.demomvvm.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.example.demomvvm.R;
-import com.example.demomvvm.adapter.UsersAdapter;
+import com.example.demomvvm.adapter.CategoryAdapter;
 import com.example.demomvvm.databinding.ActivityMainBinding;
-import com.example.demomvvm.model.Users;
-import com.example.demomvvm.viewmodel.UsersViewModel;
+import com.example.demomvvm.model.Category;
+import com.example.demomvvm.viewmodel.CategoryViewModel;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    UsersViewModel usersViewModel;
+    CategoryViewModel categoryViewModel;
     ActivityMainBinding activityMainBinding;
-    UsersAdapter usersAdapter;
+    CategoryAdapter categoryAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        usersViewModel = ViewModelProviders.of(this).get(UsersViewModel.class);
-        usersViewModel.fetchUsers();
-        usersViewModel.getLstUsers().observe(this, new Observer<List<Users>>() {
+        categoryViewModel = ViewModelProviders.of(this).get(CategoryViewModel.class);
+        categoryViewModel.fetchCategory();
+        categoryViewModel.getLstCategory().observe(this, new Observer<List<Category>>() {
             @Override
-            public void onChanged(List<Users> users) {
-                if (usersAdapter != null)
-                    usersAdapter.setUsers(users);
+            public void onChanged(List<Category> categories) {
+               categoryAdapter.setCategory(categories);
+
             }
         });
-        activityMainBinding.rvUsers.setLayoutManager(new LinearLayoutManager(this));
-        activityMainBinding.rvUsers.setHasFixedSize(false);
-        usersAdapter = new UsersAdapter(usersViewModel.getLstUsers().getValue());
-        activityMainBinding.rvUsers.setAdapter(usersAdapter);
+        activityMainBinding.rvCategory.setLayoutManager(new LinearLayoutManager(this));
+        activityMainBinding.rvCategory.setHasFixedSize(false);
+        categoryAdapter = new CategoryAdapter(categoryViewModel.getLstCategory().getValue());
+        activityMainBinding.rvCategory.setAdapter(categoryAdapter);
     }
 }

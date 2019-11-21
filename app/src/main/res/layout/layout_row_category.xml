@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="user"
-            type="com.example.demomvvm.model.Users"/>
+            name="category"
+            type="com.example.demomvvm.model.Category"/>
 
     </data>
     <LinearLayout
@@ -37,10 +37,10 @@
                     bind:layout_constraintStart_toStartOf="parent"
                     bind:layout_constraintTop_toTopOf="parent"
                     android:layout_marginLeft="8dp"
-                    bind:avatar="@{user.avatar}"/>
+                    bind:avatar="@{category.avatar}"/>
 
                 <TextView
-                    android:id="@+id/tvFullName"
+                    android:id="@+id/tvName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/ivPic"
@@ -48,7 +48,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:padding="4dp"
-                    android:text="@{user.firstName}"
+                    android:text="@{category.categoryName}"
                     android:textColor="@color/colorPrimary"
                     android:textSize="18sp"
                     bind:layout_constraintEnd_toEndOf="parent"
@@ -57,20 +57,20 @@
                   />
 
                 <TextView
-                    android:id="@+id/tvEmail"
+                    android:id="@+id/tvCreatedAt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvFullName"
+                    android:layout_below="@+id/tvName"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
                     android:padding="4dp"
-                    android:text="@{user.email}"
+                    android:text="@{category.createdAt}"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
                     bind:layout_constraintEnd_toEndOf="parent"
                     bind:layout_constraintStart_toEndOf="@+id/ivPic"
-                    bind:layout_constraintTop_toBottomOf="@+id/tvFullName"
+                    bind:layout_constraintTop_toBottomOf="@+id/tvName"
                    />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

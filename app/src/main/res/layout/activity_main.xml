@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="UsersViewModel"
-            type="com.example.demomvvm.viewmodel.UsersViewModel" />
+            name="CategoryViewModel"
+            type="com.example.demomvvm.viewmodel.CategoryViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,7 +16,7 @@
         tools:context=".view.MainActivity">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvUsers"
+            android:id="@+id/rvCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
